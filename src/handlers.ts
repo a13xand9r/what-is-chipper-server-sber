@@ -36,7 +36,7 @@ export const whatIsChipperHandler: SaluteHandler = ({ req, res }) => {
         }
     } else {
         const keyset = req.i18n(dictionary)
-        const text = keyset('Привет')
+        const text = keyset('Не достаточно данных')
         res.setPronounceText(text)
         res.appendBubble(text)
     }
