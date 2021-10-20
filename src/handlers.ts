@@ -26,8 +26,9 @@ export const whatIsChipperHandler: SaluteHandler = ({ req, res }) => {
         if (cheapest) {
             const percentageStringArr = percentage.toString().split('')
             const lastPercentageChar = percentageStringArr[percentageStringArr.length - 1]
-            res.setPronounceText(`<speak>${cheapest === 1 ? 'Первый' : 'Второй'} вариант выгоднее на, ${percentage} ${lastPercentageChar === '1' ? 'процент' :
-                lastPercentageChar === '2' || lastPercentageChar === '3' || lastPercentageChar === '4' ? 'процента' : 'процентов</speak>'}`, {ssml: true})
+            const last2PercentageChar = percentageStringArr[percentageStringArr.length - 2]
+            res.setPronounceText(`<speak>${cheapest === 1 ? 'Первый' : 'Второй'} вариант выгоднее на, ${percentage} ${last2PercentageChar !== '1' ? lastPercentageChar === '1' ? 'процент' :
+                lastPercentageChar === '2' || lastPercentageChar === '3' || lastPercentageChar === '4' ? 'процента' : 'процентов' : 'процентов'} </speak>`, {ssml: true})
             res.appendBubble(`${cheapest === 1 ? 'Первый' : 'Второй'} вариант выгоднее на ${percentage}%.`)
         } else {
             res.setPronounceText(`Тут разницы в цене вообще нет.`)
