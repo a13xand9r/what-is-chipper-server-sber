@@ -8,7 +8,7 @@ export function getWeightAndCost(human_normalized_text: string){
     const arr = []
     for (let i = 0; i < humanNormalizedTextArr.length; i++) {
         if (Number(humanNormalizedTextArr[i])){
-            if (humanNormalizedTextArr[i + 1] === 'килограмм'){
+            if (humanNormalizedTextArr[i + 1] === 'килограмм' || humanNormalizedTextArr[i + 1] === 'литр'){
                 arr.push(Number(humanNormalizedTextArr[i])*1000)
             } else if (humanNormalizedTextArr[i + 1] === 'тонна'){
                 arr.push(Number(humanNormalizedTextArr[i])*1000_000)
