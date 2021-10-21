@@ -27,10 +27,9 @@ export const whatIsChipperHandler: SaluteHandler = ({ req, res }) => {
             const percentageStringArr = percentage.toString().split('')
             const lastPercentageChar = percentageStringArr[percentageStringArr.length - 1]
             const last2PercentageChar = percentageStringArr[percentageStringArr.length - 2]
-            res.setPronounceText(`<speak>${cheapest === 1 ? 'Первый' : 'Второй'} вариант выгоднее на ${percentage >= 100 ? 'целых' : ''}
-             ${percentage}, ${last2PercentageChar !== '1' ? lastPercentageChar === '1' ? 'процент' :
-                    lastPercentageChar === '2' || lastPercentageChar === '3' || lastPercentageChar === '4' ? 'процента' : 'процентов' : 'процентов'} </speak>`, { ssml: true })
-            res.appendBubble(`${cheapest === 1 ? 'Первый' : 'Второй'} вариант выгоднее на${percentage >= 100 ? 'целых' : ''} ${percentage}%`)
+            res.setPronounceText(`<speak>${cheapest === 1 ? 'Первый' : 'Второй'} вариант выгоднее на ${percentage >= 100 ? ' целых' : ''} ${percentage}, ${last2PercentageChar !== '1' ? lastPercentageChar === '1' ? 'процент' :
+                lastPercentageChar === '2' || lastPercentageChar === '3' || lastPercentageChar === '4' ? 'процента' : 'процентов' : 'процентов'} </speak>`, { ssml: true })
+            res.appendBubble(`${cheapest === 1 ? 'Первый' : 'Второй'} вариант выгоднее на${percentage >= 100 ? ' целых' : ''} ${percentage}%`)
         } else {
             res.setPronounceText(`Тут разницы в цене вообще нет`)
             res.appendBubble(`Тут разницы в цене вообще нет`)
