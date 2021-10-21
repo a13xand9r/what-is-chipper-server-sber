@@ -32,12 +32,12 @@ export function countCheapest(cost1: number, cost2: number, weight1: number, wei
     if (costForGram1 > costForGram2){
         return {
             cheapest: 2,
-            percentage: Math.round((costForGram1 - costForGram2) / costForGram1 * 100)
+            percentage: Math.round((costForGram1 - costForGram2) / costForGram2 * 100)
         }
     } else if (costForGram1 < costForGram2){
         return {
             cheapest: 1,
-            percentage: Math.round((costForGram2 - costForGram1) / costForGram2 * 100)
+            percentage: Math.round((costForGram2 - costForGram1) / costForGram1 * 100)
         }
     } else {
         return {

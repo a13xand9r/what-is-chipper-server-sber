@@ -29,10 +29,10 @@ export const whatIsChipperHandler: SaluteHandler = ({ req, res }) => {
             const last2PercentageChar = percentageStringArr[percentageStringArr.length - 2]
             res.setPronounceText(`<speak>${cheapest === 1 ? 'Первый' : 'Второй'} вариант выгоднее на ${percentage}, ${last2PercentageChar !== '1' ? lastPercentageChar === '1' ? 'процент' :
                 lastPercentageChar === '2' || lastPercentageChar === '3' || lastPercentageChar === '4' ? 'процента' : 'процентов' : 'процентов'} </speak>`, {ssml: true})
-            res.appendBubble(`${cheapest === 1 ? 'Первый' : 'Второй'} вариант выгоднее на ${percentage}%.`)
+            res.appendBubble(`${cheapest === 1 ? 'Первый' : 'Второй'} вариант выгоднее на ${percentage}%`)
         } else {
-            res.setPronounceText(`Тут разницы в цене вообще нет.`)
-            res.appendBubble(`Тут разницы в цене вообще нет.`)
+            res.setPronounceText(`Тут разницы в цене вообще нет`)
+            res.appendBubble(`Тут разницы в цене вообще нет`)
         }
     } else {
         const keyset = req.i18n(dictionary)
