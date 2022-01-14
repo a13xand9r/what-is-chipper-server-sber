@@ -8,7 +8,7 @@ export const runAppHandler: SaluteHandler = ({ req, res }, dispatch) => {
     const helloText = keyset('Привет')
     res.setPronounceText(helloText)
     res.appendBubble(helloText)
-    console.log('runAppHandler')
+    res.appendSuggestions(['Выйти'])
 }
 
 export const noMatchHandler: SaluteHandler = ({ req, res }) => {
@@ -16,6 +16,7 @@ export const noMatchHandler: SaluteHandler = ({ req, res }) => {
     const errorText = keyset('404')
     res.setPronounceText(errorText)
     res.appendBubble(errorText)
+    res.appendSuggestions(['Выйти'])
 }
 
 export const whatIsChipperHandler: SaluteHandler = ({ req, res }) => {
@@ -40,4 +41,5 @@ export const whatIsChipperHandler: SaluteHandler = ({ req, res }) => {
         res.setPronounceText(text)
         res.appendBubble(text)
     }
+    res.appendSuggestions(['Выйти'])
 }
